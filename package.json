@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint \"./**/*.{js,jsx}\" ",
     "build": "webpack --mode production"
-  },
+  }, 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/smartlyio/fullstackopen-cicd.git"

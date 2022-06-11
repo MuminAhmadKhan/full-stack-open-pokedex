@@ -44,11 +44,11 @@ jobs:
             checkstring: "ok"
             delay: 5
             rollbackonhealthcheckfailed: true
-        if: ${{ (github.event_name =='push') && (contains(join( github.event.commits.*.message,' ,' ), '#skip') == 'true')  }} 
+        if: ${{ (github.event_name =='push') && (contains(join( github.event.commits.*.message,' ,' ), '#skip') != 'true')  }} 
     
   tag_release:
     needs: [simple_deployment_pipeline]
-    if:  ${{ (github.event_name =='push') && (contains(join(github.event.commits.*.message,' ,' ), '#skip') == 'true')  }}  
+    if:  ${{ (github.event_name =='push') && (contains(join(github.event.commits.*.message,' ,' ), '#skip') != 'true')  }}  
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2

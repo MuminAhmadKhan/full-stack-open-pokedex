@@ -5,7 +5,7 @@ app.get('/health', (req, res) => {
   res.send('ok')
 })
 app.get('/version', (req, res) => {
-  res.send('6')
+  res.send('7')
 })
 // Heroku dynamically sets a port
 const PORT = process.env.PORT || 5000

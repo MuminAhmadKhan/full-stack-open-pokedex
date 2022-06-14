@@ -14,5 +14,12 @@ jobs:
           echo "Hello World!"
           date
           ls -l
-
+      - name: Test Success
+        uses: rjstone/discord-webhook-notify@v1
+        if: success()&& (github.event_name =='push') && (contains(join( github.event.commits.*.message,' ,' ), '#skip') != true) 
+        with:
+            severity: info
+            details: Deployment Succeeded!
+            webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+            commitUrl: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
   

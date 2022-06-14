@@ -59,7 +59,7 @@ jobs:
             severity: info
             details: Deployment Succeeded!
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-        
+            commitUrl: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
   tag_release:
     needs: [simple_deployment_pipeline]
     if:  ${{ (github.event_name =='push') && (contains(join(github.event.commits.*.message,' ,' ), '#skip') != true)  }}  

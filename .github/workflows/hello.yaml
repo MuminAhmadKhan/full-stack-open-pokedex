@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - master
-  pull_request:
-      branches: [master]
-      types: [opened, synchronize]
+  
 jobs:
   hello_world_job:
     runs-on: ubuntu-20.04
@@ -16,4 +14,4 @@ jobs:
           echo "Hello World!"
           date
           ls -l
-          echo "https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
+          

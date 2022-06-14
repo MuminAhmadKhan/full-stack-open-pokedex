@@ -31,7 +31,7 @@ jobs:
             severity: error
             details: Build Failed!
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-            commitUrl: https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA
+            #commitUrl: https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA
       - name: test
         run: npm run test
       - name: e2e tests
@@ -60,7 +60,7 @@ jobs:
             severity: info
             details: Deployment Succeeded!
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-            commitUrl: https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA
+            #commitUrl: https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA
   tag_release:
     needs: [simple_deployment_pipeline]
     if:  ${{ (github.event_name =='push') && (contains(join(github.event.commits.*.message,' ,' ), '#skip') != true)  }}  

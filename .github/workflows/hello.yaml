@@ -16,4 +16,4 @@ jobs:
           echo "Hello World!"
           date
           ls -l
-          echo "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          echo "https://github.com/$GITHUB_REPOSITORY/commit/runs/$github.sha"

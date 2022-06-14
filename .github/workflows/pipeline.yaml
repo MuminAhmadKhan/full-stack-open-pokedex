@@ -51,7 +51,7 @@ jobs:
             healthcheck: "https://mumin-pokedex.herokuapp.com/health"
             checkstring: "ok"
             delay: 5
-            rollbackonhealthcheckfailed: false
+            rollbackonhealthcheckfailed: true
         if: ${{ (github.event_name =='push') && (contains(join( github.event.commits.*.message,' ,' ), '#skip') != true)  }} 
       - name: Test Success
         uses: rjstone/discord-webhook-notify@v1

@@ -54,11 +54,12 @@ jobs:
         if: ${{ (github.event_name =='push') && (contains(join( github.event.commits.*.message,' ,' ), '#skip') != true)  }} 
       - name: Test Success
         uses: rjstone/discord-webhook-notify@v1
-        if: success()
+        if: success()&& (github.event_name =='push') && (contains(join( github.event.commits.*.message,' ,' ), '#skip') != true) 
         with:
             severity: info
             details: Deployment Succeeded!
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+        
   tag_release:
     needs: [simple_deployment_pipeline]
     if:  ${{ (github.event_name =='push') && (contains(join(github.event.commits.*.message,' ,' ), '#skip') != true)  }}  

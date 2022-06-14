@@ -16,4 +16,4 @@ jobs:
           echo "Hello World!"
           date
           ls -l
-          echo "https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA/checks?check_suite_id=$GITHUB_CHECK_SUITE_ID"
+          echo "https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
